@@ -23,13 +23,20 @@ void Test()
     assert(produs.getReal() == -12);
     assert(produs.getImag() == 2);
 
+    //asserturile ar trebui sa functioneze, dar dint-un oarecare motiv dau fail
     cat = c1.quot(c2);
-    //assert(cat.getReal() == 0.692308);
-   // assert(cat.getImag() ==0.653846);
+//    cout << cat.getReal() << "  ";
+//    cout << cat.getImag();
+//    assert(cat.getReal() == 0.692308);
+//    assert(cat.getImag() == 0.653846);
 
     val_absoluta = c1.abs();
     assert(val_absoluta == 5);
 
+    assert(c1.compute_polar() == "5.000000(cos(0.643501) + i*sin(0.643501))");
+    assert(c2.compute_polar() == "7.211103(cos(0.588003) + i*sin(0.588003))");
+    Complex c3(0, 0);
+    assert(c3.compute_polar() == "0");
 }
 
 int main() {
@@ -61,6 +68,7 @@ int main() {
     for (int i=1; i<n; i++) {
         suma = suma.add(v[i]);
     }
+    cout << endl << "Suma totala este: ";
     suma.show_compl();
 
     Test();

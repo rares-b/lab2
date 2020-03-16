@@ -116,14 +116,14 @@ std::string Complex::compute_polar() const {
     else if (real < 0) {
         finalString = to_string(r);
         double phi = atan(real/imag);
-        string phiString = to_string(phi) + "pi";
+        string phiString = to_string(phi) + " + pi";
         finalString = finalString + "(cos(" + phiString + ") + i*sin(" + phiString + "))";
         return finalString;
     }
     else if (real > 0 && imag < 0) {
         finalString = to_string(r);
         double phi = atan(real/imag);
-        string phiString = to_string(phi) + "2*pi";
+        string phiString = to_string(phi) + " + 2*pi";
         finalString = finalString + "(cos(" + phiString + ") + i*sin(" + phiString + "))";
         return finalString;
     }
