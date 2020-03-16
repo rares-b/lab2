@@ -1,5 +1,4 @@
 #include <string>
-#include <iostream>
 #pragma once
 
 class Complex {
@@ -37,7 +36,7 @@ public:
     Complex quot(Complex other) const;
 
     //returns the absolute value of a complex number
-    double abs(Complex other) const;
+    double abs() ;
 
     //returns the polar form of a complex number
     std::string compute_polar(Complex other) const;

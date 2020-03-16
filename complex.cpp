@@ -1,6 +1,7 @@
 #include "complex.h"
 #include <iostream>
 #include <string>
+#include <cmath>
 
 using namespace std;
 
@@ -34,44 +35,45 @@ void Complex::setImag(double newImag) {
 }
 
 void Complex::show_compl() {
-    std::cout << real << " + " << imag << "i" << std::endl;
+    cout << real <<"+"<< imag <<"i"<<endl;
+
+
 }
 
 void Complex::show_exp() {
+    float r;
+    r = sqrt(real*real+imag*imag);
+    cout<<r<<"*e^(i*arctg"<<imag<<"/"<<real<<")"<<endl;
+
+
+
 
 }
 
 Complex Complex::add(Complex other) const {
-    Complex addComplex;
-    addComplex.real = real + other.real;
-    addComplex.imag = imag + other.imag;
-    return addComplex;
+    return Complex(0, 0);
 }
 
 Complex Complex::mult(Complex other) const {
-    Complex multComplex;
-    multComplex.real = real * other.real - imag * other.imag;
-    multComplex.imag = real * other.imag - other.real * imag;
-    return multComplex;
+    return Complex(0, 0);
 }
 
 Complex Complex::quot(Complex other) const {
-    Complex quotComplex;
-    quotComplex.real = (real*other.real + imag*other.imag) / (other.real*other.real + other.imag*other.imag);
-    quotComplex.imag = (imag*other.real + real*other.imag) / (other.real*other.real + other.imag*other.imag);
-    return quotComplex;
+    return Complex(0, 0);
 }
 
-double Complex::abs(Complex other) const {
-    return 0;
+double Complex:: abs() {
+    float betrag;
+    if (imag !=0 || real != 0) {
+        float r;
+        betrag = sqrt(real*real+imag*imag);
+        return betrag;
+    }
+    else
+        return 0;
 }
 
 std::string Complex::compute_polar(Complex other) const {
     return nullptr;
 }
-
-
-
-
-
 
