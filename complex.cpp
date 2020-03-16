@@ -34,7 +34,7 @@ void Complex::setImag(double newImag) {
 }
 
 void Complex::show_compl() {
-
+    std::cout << real << " + " << imag << "i" << std::endl;
 }
 
 void Complex::show_exp() {
@@ -42,15 +42,24 @@ void Complex::show_exp() {
 }
 
 Complex Complex::add(Complex other) const {
-    return Complex(0, 0);
+    Complex addComplex;
+    addComplex.real = real + other.real;
+    addComplex.imag = imag + other.imag;
+    return addComplex;
 }
 
 Complex Complex::mult(Complex other) const {
-    return Complex(0, 0);
+    Complex multComplex;
+    multComplex.real = real * other.real - imag * other.imag;
+    multComplex.imag = real * other.imag - other.real * imag;
+    return multComplex;
 }
 
 Complex Complex::quot(Complex other) const {
-    return Complex(0, 0);
+    Complex quotComplex;
+    quotComplex.real = (real*other.real + imag*other.imag) / (other.real*other.real + other.imag*other.imag);
+    quotComplex.imag = (imag*other.real + real*other.imag) / (other.real*other.real + other.imag*other.imag);
+    return quotComplex;
 }
 
 double Complex::abs(Complex other) const {
@@ -60,7 +69,6 @@ double Complex::abs(Complex other) const {
 std::string Complex::compute_polar(Complex other) const {
     return nullptr;
 }
-
 
 
 
