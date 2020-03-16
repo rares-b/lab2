@@ -9,12 +9,35 @@ bool compare_abs(Complex c1, Complex c2) {
     return (c1.abs() < c2.abs());
 }
 
+void Test()
+{
+    Complex suma, produs, cat;
+    double val_absoluta;
+    Complex c1(3,4);
+    Complex c2(4,6);
+    suma = c1.add(c2);
+    assert(suma.getReal() == 7);
+    assert(suma.getImag() == 10);
+
+    produs = c1.mult(c2);
+    assert(produs.getReal() == -12);
+    assert(produs.getImag() == 2);
+
+    cat = c1.quot(c2);
+    //assert(cat.getReal() == 0.692308);
+   // assert(cat.getImag() ==0.653846);
+
+    val_absoluta = c1.abs();
+    assert(val_absoluta == 5);
+
+}
+
 int main() {
 
     //ex5 - creeaza un sir de obiecte de tip Complex
     Complex v[5];
     Complex obj1(3,4);
-    Complex obj2(5, 6);
+    Complex obj2(4, 6);
     Complex obj3(8,9);
     Complex obj4(1,3);
     Complex obj5(2,6);
@@ -40,5 +63,6 @@ int main() {
     }
     suma.show_compl();
 
+    Test();
     return 0;
 }
