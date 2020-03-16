@@ -36,10 +36,9 @@ public:
     Complex quot(Complex other) const;
 
     //returns the absolute value of a complex number
-    double abs() ;
+    double abs() const;
 
     //returns the polar form of a complex number
-    std::string compute_polar(Complex other) const;
-
+    std::string compute_polar() const;
 
 };
