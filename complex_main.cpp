@@ -19,6 +19,14 @@ int main() {
     v[3] = obj4;
     v[4] = obj5;
 
+    //ex7
+    Complex suma;
+    Complex suma1;
+    suma = v[0].add(v[1]);
+    suma1= suma.add(v[2]);
+    suma = suma1.add(v[3]);
+    suma1=suma.add(v[4]);
+    //suma1.show_compl();
 
     return 0;
 }
