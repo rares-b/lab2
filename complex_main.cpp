@@ -1,12 +1,17 @@
 #include "complex.h"
 #include <iostream>
 #include <cassert>
+#include <algorithm>
 
 using namespace std;
 
+bool compare_abs(Complex c1, Complex c2) {
+    return (c1.abs() < c2.abs());
+}
+
 int main() {
 
-    //ex5
+    //ex5 - creeaza un sir de obiecte de tip Complex
     Complex v[5];
     Complex obj1(3,4);
     Complex obj2(5, 6);
@@ -19,14 +24,21 @@ int main() {
     v[3] = obj4;
     v[4] = obj5;
 
-    //ex7
-    Complex suma;
-    Complex suma1;
-    suma = v[0].add(v[1]);
-    suma1= suma.add(v[2]);
-    suma = suma1.add(v[3]);
-    suma1=suma.add(v[4]);
-    //suma1.show_compl();
+    //ex6 - sorteaza sirul dupa modul
+    int n = sizeof(v)/sizeof(v[0]);  // lungimea sirului
+    sort(v, v+n, compare_abs);  // sorteaza sirul dupa modul
+    cout << "Vector sorted by absolute value: \n";
+    for (int i=0; i<n; i++) {
+        v[i].show_compl();
+        cout << " with abs = " << v[i].abs() << endl;
+    }
+
+    //ex7 - calculeaza suma totala a sirului
+    Complex suma = v[0];
+    for (int i=1; i<n; i++) {
+        suma = suma.add(v[i]);
+    }
+    suma.show_compl();
 
     return 0;
 }
