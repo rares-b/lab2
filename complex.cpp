@@ -7,16 +7,19 @@ using namespace std;
 
 
 Complex::Complex() {
+    /* Default Constructor
+     Atributele sunt initializate cu 0*/
     real = 0;
     imag = 0;
 }
 
 Complex::Complex(double real, double imag) {
+    /* Alt constructor*/
     this->real = real;
     this->imag = imag;
 }
 
-Complex::~Complex() = default;
+Complex::~Complex() = default; // Destructor
 
 double Complex::getReal() const {
     return real;
@@ -35,16 +38,20 @@ void Complex::setImag(double newImag) {
 }
 
 void Complex::show_compl() {
+    //Functie care afiseaza un obiect de tip Complex
     cout << real <<"+"<< imag <<"i"<<endl;
 }
 
 void Complex::show_exp() {
+    //Functie care afiseaza forma exponentiala a unui obiect de tip Complex
     double r;
     r = sqrt(real*real+imag*imag);
     cout<<r<<"*e^(i*arctg"<<imag<<"/"<<real<<")"<<endl;
 }
 
 Complex Complex::add(Complex other) const {
+    //Functie care aduna doua obiecte de tip Complex
+    // return addComplex - suma
     Complex addComplex;
     addComplex.real = real + other.real;
     addComplex.imag = imag + other.imag;
@@ -52,6 +59,8 @@ Complex Complex::add(Complex other) const {
 }
 
 Complex Complex::mult(Complex other) const {
+    //Functuie care calculeaza produsul a doua obiecte de tip Complex
+    // return multComplex - produsul
     Complex multComplex;
     multComplex.real = real * other.real - imag * other.imag;
     multComplex.imag = real * other.imag - other.real * imag;
@@ -59,6 +68,8 @@ Complex Complex::mult(Complex other) const {
 }
 
 Complex Complex::quot(Complex other) const {
+    //Functie care calculeaza catul a doua obiecte de tip Complex
+    //return quotComplex - cat
     Complex quotComplex;
     quotComplex.real = (real*other.real + imag*other.imag) / (other.real*other.real + other.imag*other.imag);
     quotComplex.imag = (imag*other.real + real*other.imag) / (other.real*other.real + other.imag*other.imag);
@@ -66,6 +77,9 @@ Complex Complex::quot(Complex other) const {
 }
 
 double Complex::abs() const {
+    //Functie care returneaza valoarea absoluta a unui obiect de tip Complex
+    // return - betrag - val absoluta
+       //     - 0  daca atat real cat si imag sunt 0
     double betrag;
     if (imag !=0 || real != 0) {
         betrag = sqrt(real*real+imag*imag);
@@ -76,6 +90,7 @@ double Complex::abs() const {
 }
 
 std::string Complex::compute_polar() const {
+    // Functie care returneaza forma polara a unui obiect de tip Complex
     double r = this->abs();
     string finalString;
 
@@ -114,4 +129,3 @@ std::string Complex::compute_polar() const {
     }
     return "0";
 }
-
